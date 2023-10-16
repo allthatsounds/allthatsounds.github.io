@@ -328,6 +328,7 @@ var globalfunlist = {
    plotwavelets:'wavelets/plotwavelets',
    plotwmdct:'gabor/plotwmdct',
    podd:'fourier/podd',
+   postpad:'sigproc/postpad',
    prect:'fourier/prect',
    projkern:'gabor/projkern',
    psech:'fourier/psech',

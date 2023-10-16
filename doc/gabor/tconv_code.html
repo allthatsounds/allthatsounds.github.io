@@ -145,6 +145,30 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <span class="w">  </span><span class="n">h</span><span class="p">=</span><span class="n">spreadfun</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span><span class="w"></span>
 
 <span class="k">end</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span>coef<span class="p">=</span><span class="nf">spreadfun</span><span class="p">(</span>T<span class="p">)</span><span class="w"></span>
+<span class="c">%SPREADFUN  Spreading function of a matrix</span><span class="w"></span>
+<span class="c">%   Usage:  c=spreadfun(T);</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%   `spreadfun(T)` computes the spreading function of the operator *T*,</span><span class="w"></span>
+<span class="c">%   represented as a matrix. The spreading function represent the operator *T*</span><span class="w"></span>
+<span class="c">%   as a weighted sum of time-frequency shifts. See the help text for</span><span class="w"></span>
+<span class="c">%   |spreadop| for the exact definition.</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%   See also:  spreadop, tconv, spreadinv, spreadadj</span><span class="w"></span>
+
+<span class="n">complainif_argnonotinrange</span><span class="p">(</span><span class="nb">nargin</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nb">mfilename</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="nb">ndims</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">size</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">~=</span><span class="nb">size</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">error</span><span class="p">(</span><span class="s">&#39;Input symbol T must be a square matrix.&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">end</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">L</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% The &#39;full&#39; appearing on the next line is to guard the mex file.</span><span class="w"></span>
+<span class="n">coef</span><span class="p">=</span><span class="n">comp_col2diag</span><span class="p">(</span><span class="nb">full</span><span class="p">(</span><span class="n">T</span><span class="p">));</span><span class="w"></span>
+
+<span class="n">coef</span><span class="p">=</span><span class="nb">fft</span><span class="p">(</span><span class="n">coef</span><span class="p">)</span><span class="o">/</span><span class="n">L</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 

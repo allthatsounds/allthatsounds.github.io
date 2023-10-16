@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta NAME="keywords" CONTENT="gabor, wavelets, filterbank, signal processing, matlab,
 octave"/>
-<title>PHASELOCKREAL - Phaselock Gabor coefficients</title>
+<title>POSTPAD - Pads or truncates a vector x to a specified length L</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet"
@@ -24,7 +24,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <div class="masthead include" file="../../include/mainnav.html">
 </div>
 <div class="row">
-    <div class="col-md-2" id="codeswitch"><div id="menutitle"><a href="phaselockreal_code.html">View the code</a></div>
+    <div class="col-md-2" id="codeswitch"><div id="menutitle"><a href="postpad_code.html">View the code</a></div>
 </div>
     <div class="col-md-offset-5 col-md-5" id="jumplist">This is where navigation should be.</div>
 </div>
@@ -33,14 +33,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
         <div class="include" file='../include/docnav.html'></div>
         <div id="seealso"><p><div id="menutitle">See also:</div>
 <ul>
-<li><a href="#BASEURL#/doc/gabor/dgtreal.html">dgtreal</a></li>
-<li><a href="#BASEURL#/doc/gabor/phaseunlockreal.html">phaseunlockreal</a></li>
+<li><a href="#BASEURL#/doc/fourier/middlepad.html">middlepad</a></li>
 </ul>
 </p></div>
     </div>
     <div class="col-md-10">
 
-        <h1 class="title">PHASELOCKREAL - Phaselock Gabor coefficients</h1>
+        <h1 class="title">POSTPAD - Pads or truncates a vector x to a specified length L</h1>
 
 <div class="system-message">
 <p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">mat2doc/html/ref-allthatsounds_ltfat.txt</tt>, line 3)</p>
@@ -1335,32 +1334,21 @@ Duplicate substitution definition name: &quot;mulaclab&quot;.</div>
 <div class="section" id="usage">
 <h2>Usage</h2>
 <pre class="literal-block">
-c=phaselockreal(c,a,M);
+y=postpad(x,L);
+y=postpad(x,L,C);
+y=postpad(x,L,C,dim);
 </pre>
 </div>
 <div class="section" id="xxxdescription">
 <h2>Description</h2>
-<p><tt class="docutils literal">phaselockreal(c,a,M)</tt> phaselocks the Gabor coefficients <em>c</em>.
-The coefficients must have been obtained from a <span class="linkrole"><a href="#BASEURL#/doc/gabor/dgtreal.html">dgtreal</a></span> with
-parameter <em>a</em>.</p>
-<p>Phaselocking the coefficients modifies them so as if they were obtained
-from a time-invariant Gabor system. A filter bank produces phase locked
-coefficients.</p>
-<p>Please see help of <span class="linkrole"><a href="#BASEURL#/doc/gabor/phaselock.html">phaselock</a></span> for more details.</p>
+<p><tt class="docutils literal">postpad(x,L)</tt> will add zeros to the end of the vector <em>x</em>, until the
+result has length <em>L</em>. If <em>L</em> is less than the length of the signal, it
+will be truncated. <tt class="docutils literal">postpad</tt> works along the first non-singleton
+dimension.</p>
+<p><tt class="docutils literal">postpad(x,L,C)</tt> will add entries with a value of <em>C</em> instead of zeros.</p>
+<p><tt class="docutils literal">postpad(x,L,C,dim)</tt> works along dimension <em>dim</em> instead of the first
+non-singleton.</p>
 </div>
-<H2>References:</H2>
-
-
-
-<p><a name="puc95"></a>
-
-M.&nbsp;Puckette.
- Phase-locked vocoder.
- <em>Applications of Signal Processing to Audio and Acoustics, 1995.,
-  IEEE ASSP Workshop on</em>, pages 222 --225, 1995.
-
-</p>
-
 
         <div class="include" file="../../include/footer.html"></div>
     </div>
