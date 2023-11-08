@@ -37,8 +37,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
         <h1 class="title">LTFAT - Gabor analysis</h1>
 
 <p>Peter L. Søndergaard, 2007 - 2023.</p>
-<div class="section" id="gabor-systems">
-<h2>Gabor systems</h2>
+<div class="section" id="basic-transform-routines">
+<h2>Basic transform routines</h2>
 <ul class="simple">
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/dgt.html">dgt</a></span> - Discrete Gabor transform</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/idgt.html">idgt</a></span> - Inverse discrete Gabor transform</li>
@@ -53,8 +53,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/dgtlength.html">dgtlength</a></span> - Length of Gabor system to expand a signal</li>
 </ul>
 </div>
-<div class="section" id="reconstructing-windows">
-<h2>Reconstructing windows</h2>
+<div class="section" id="advanced-transform-routines-non-separable-lattices">
+<h2>Advanced transform routines: Non-separable lattices</h2>
+<ul class="simple">
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/matrix2latticetype.html">matrix2latticetype</a></span> - Matrix form to standard lattice description</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/latticetype2matrix.html">latticetype2matrix</a></span> - Standard lattice description to matrix form</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/shearfind.html">shearfind</a></span> - Shears to transform a general lattice to a separable</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/noshearlength.html">noshearlength</a></span> - Next transform side not requiring a frequency side shear</li>
+</ul>
+</div>
+<div class="section" id="window-construction">
+<h2>Window construction</h2>
 <ul class="simple">
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/gabdual.html">gabdual</a></span> - Canonical dual window</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/gabtight.html">gabtight</a></span> - Canonical tight window</li>
@@ -69,13 +78,27 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/pebfundual.html">pebfundual</a></span> - Dual window for <span class="linkrole"><a href="#BASEURL#/doc/periodic/pebfun.html">pebfun</a></span></li>
 </ul>
 </div>
-<div class="section" id="conditions-numbers">
-<h2>Conditions numbers</h2>
+<div class="section" id="bounds">
+<h2>Bounds</h2>
 <ul class="simple">
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/gabframebounds.html">gabframebounds</a></span> - Frame bounds of Gabor system</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/gabrieszbounds.html">gabrieszbounds</a></span> - Riesz sequence/basis bounds of Gabor system</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/gabdualnorm.html">gabdualnorm</a></span> - Test if two windows are dual</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/gabframediag.html">gabframediag</a></span> - Diagonal of Gabor frame operator</li>
+</ul>
+</div>
+<div class="section" id="plots">
+<h2>Plots</h2>
+<ul class="simple">
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/tfplot.html">tfplot</a></span> - Plot coefficients on the time-frequency plane</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/plotdgt.html">plotdgt</a></span> - Plot <span class="linkrole"><a href="#BASEURL#/doc/gabor/dgt.html">dgt</a></span> coefficients</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/plotdgtreal.html">plotdgtreal</a></span> - Plot <span class="linkrole"><a href="#BASEURL#/doc/gabor/dgtreal.html">dgtreal</a></span> coefficients</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/sgram.html">sgram</a></span> - Spectrogram based on <span class="linkrole"><a href="#BASEURL#/doc/gabor/dgt.html">dgt</a></span></li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/gabimagepars.html">gabimagepars</a></span> - Choose parameters for nice Gabor image</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/resgram.html">resgram</a></span> - Reassigned spectrogram</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/instfreqplot.html">instfreqplot</a></span> - Plot of the instantaneous frequency</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/phaseplot.html">phaseplot</a></span> - Plot of STFT phase</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/plottfjigsawsep.html">plottfjigsawsep</a></span> - Plot the output of <span class="linkrole"><a href="#BASEURL#/doc/gabor/tfjigsawsep.html">tfjigsawsep</a></span></li>
 </ul>
 </div>
 <div class="section" id="phase-gradient-methods-and-reassignment">
@@ -106,35 +129,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/symphase.html">symphase</a></span> - Convert to symmetric phase</li>
 </ul>
 </div>
-<div class="section" id="support-for-non-separable-lattices">
-<h2>Support for non-separable lattices</h2>
-<ul class="simple">
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/matrix2latticetype.html">matrix2latticetype</a></span> - Matrix form to standard lattice description</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/latticetype2matrix.html">latticetype2matrix</a></span> - Standard lattice description to matrix form</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/shearfind.html">shearfind</a></span> - Shears to transform a general lattice to a separable</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/noshearlength.html">noshearlength</a></span> - Next transform side not requiring a frequency side shear</li>
-</ul>
-</div>
-<div class="section" id="applications">
-<h2>Applications</h2>
+<div class="section" id="general-applications">
+<h2>General applications</h2>
 <ul class="simple">
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/multidgtrealmp.html">multidgtrealmp</a></span> - Matching pursuit decomposition in Multi-Gabor system</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/tfjigsawsep.html">tfjigsawsep</a></span> - Tonal-transient-residual separation using the T-F jigsaw puzzle algorithm.</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/gabor/gabmulappr.html">gabmulappr</a></span> - Best approximation by a Gabor multiplier</li>
-</ul>
-</div>
-<div class="section" id="plots">
-<h2>Plots</h2>
-<ul class="simple">
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/tfplot.html">tfplot</a></span> - Plot coefficients on the time-frequency plane</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/plotdgt.html">plotdgt</a></span> - Plot <span class="linkrole"><a href="#BASEURL#/doc/gabor/dgt.html">dgt</a></span> coefficients</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/plotdgtreal.html">plotdgtreal</a></span> - Plot <span class="linkrole"><a href="#BASEURL#/doc/gabor/dgtreal.html">dgtreal</a></span> coefficients</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/sgram.html">sgram</a></span> - Spectrogram based on <span class="linkrole"><a href="#BASEURL#/doc/gabor/dgt.html">dgt</a></span></li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/gabimagepars.html">gabimagepars</a></span> - Choose parameters for nice Gabor image</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/resgram.html">resgram</a></span> - Reassigned spectrogram</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/instfreqplot.html">instfreqplot</a></span> - Plot of the instantaneous frequency</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/phaseplot.html">phaseplot</a></span> - Plot of STFT phase</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/gabor/plottfjigsawsep.html">plottfjigsawsep</a></span> - Plot the output of <span class="linkrole"><a href="#BASEURL#/doc/gabor/tfjigsawsep.html">tfjigsawsep</a></span></li>
 </ul>
 <p>For help, bug reports, suggestions etc. please visit
 <a class="reference external" href="http://github.com/ltfat/ltfat/issues">http://github.com/ltfat/ltfat/issues</a></p>
