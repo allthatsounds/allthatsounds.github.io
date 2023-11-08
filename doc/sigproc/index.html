@@ -37,8 +37,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
         <h1 class="title">LTFAT - Signal processing tools</h1>
 
 <p>Peter L. Søndergaard, 2007 - 2023.</p>
-<div class="section" id="general">
-<h2>General</h2>
+<div class="section" id="windows-and-wavelets">
+<h2>Windows and wavelets</h2>
+<ul class="simple">
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/firwin.html">firwin</a></span> - FIR windows (Hanning,Hamming,Blackman,...).</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/firkaiser.html">firkaiser</a></span> - FIR Kaiser-Bessel window.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/fir2long.html">fir2long</a></span> - Extend FIR window to LONG window.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/long2fir.html">long2fir</a></span> - Cut LONG window to FIR window.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/freqwin.html">freqwin</a></span> - Freq responses (Gauss,Gammatone,Butterworth,...)</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/freqwavelet.html">freqwavelet</a></span> - Frequency responses of wavelets (Cauchy, Morse)</li>
+</ul>
+<p>for further wavelet functions, see <a class="reference external" href="https://allthatsounds.github.io/doc/wavelets/">https://allthatsounds.github.io/doc/wavelets/</a></p>
+</div>
+<div class="section" id="filters">
+<h2>Filters</h2>
+<ul class="simple">
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/firfilter.html">firfilter</a></span> - Construct an FIR filter.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/blfilter.html">blfilter</a></span> - Construct a band-limited filter.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/warpedblfilter.html">warpedblfilter</a></span> - Warped, band-limited filter.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/freqfilter.html">freqfilter</a></span> - Construct a full length frequency side filter.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/pfilt.html">pfilt</a></span> - Apply filter with periodic boundary conditions.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/magresp.html">magresp</a></span> - Magnitude response plot.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/pgrpdelay.html">pgrpdelay</a></span> - Periodic Group Delay.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/transferfunction.html">transferfunction</a></span> - Compute the transfer function of a filter.</li>
+</ul>
+</div>
+<div class="section" id="signal-analysis-and-synthesis">
+<h2>Signal analysis and synthesis</h2>
 <ul class="simple">
 <li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/rms.html">rms</a></span> - Root Mean Square norm of signal.</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/setnorm.html">setnorm</a></span> - Normalize signal by specified norm.</li>
@@ -47,37 +72,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/lowdiscrepancy.html">lowdiscrepancy</a></span> - Compute a low discrepancy sequence.</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/uquant.html">uquant</a></span> - Simulate uniform quantization.</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/postpad.html">postpad</a></span> - Pad or truncate a vector.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/col2diag.html">col2diag</a></span> - Move columns of a matrix to diagonals</li>
 <li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/s0norm.html">s0norm</a></span> - S0-norm</li>
-</ul>
-</div>
-<div class="section" id="window-functions">
-<h2>Window functions</h2>
-<ul class="simple">
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/firwin.html">firwin</a></span> - FIR windows (Hanning,Hamming,Blackman,...).</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/firkaiser.html">firkaiser</a></span> - FIR Kaiser-Bessel window.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/fir2long.html">fir2long</a></span> - Extend FIR window to LONG window.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/long2fir.html">long2fir</a></span> - Cut LONG window to FIR window.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/freqwin.html">freqwin</a></span> - Freq responses (Gauss,Gammatone,Butterworth,...)</li>
-</ul>
-</div>
-<div class="section" id="wavelet-functions">
-<h2>Wavelet functions</h2>
-<ul class="simple">
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/freqwavelet.html">freqwavelet</a></span> - Frequency responses of wavelets (Cauchy, Morse)</li>
-</ul>
-</div>
-<div class="section" id="filtering">
-<h2>Filtering</h2>
-<ul class="simple">
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/firfilter.html">firfilter</a></span> - Construct an FIR filter.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/blfilter.html">blfilter</a></span> - Construct a band-limited filter.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/warpedblfilter.html">warpedblfilter</a></span> - Warped, band-limited filter.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/freqfilter.html">freqfilter</a></span> - Construct a full length frequency side filter.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/pfilt.html">pfilt</a></span> - Apply filter with periodic boundary conditions.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/magresp.html">magresp</a></span> - Magnitude response plot.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/transferfunction.html">transferfunction</a></span> - Compute the transfer function of a filter.</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/pgrpdelay.html">pgrpdelay</a></span> - Periodic Group Delay</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/rangecompress.html">rangecompress</a></span> - Compress range of signal (mu-law etc).</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/rangeexpand.html">rangeexpand</a></span> - Expand range of signal.</li>
 </ul>
 </div>
 <div class="section" id="ramping">
@@ -98,20 +95,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/groupthresh.html">groupthresh</a></span> - Group thresholding.</li>
 </ul>
 </div>
-<div class="section" id="image-processing">
-<h2>Image processing</h2>
-<ul class="simple">
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/rgb2jpeg.html">rgb2jpeg</a></span> - Convert RGB values to the JPEG colour model</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/jpeg2rgb.html">jpeg2rgb</a></span> - Convert values from the JPEG colour model to RGB</li>
-</ul>
-</div>
-<div class="section" id="tools-for-ofdm">
-<h2>Tools for OFDM</h2>
-<ul class="simple">
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/qam4.html">qam4</a></span> - Quadrature amplitude modulation, order 4</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/iqam4.html">iqam4</a></span> - Inverse QAM of order 4</li>
-</ul>
-</div>
 <div class="section" id="auditory-processing">
 <h2>Auditory processing</h2>
 <ul class="simple">
@@ -128,11 +111,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/semiaudplot.html">semiaudplot</a></span> - 2D plot on auditory scale.</li>
 </ul>
 </div>
-<div class="section" id="range-compression">
-<h2>Range compression</h2>
+<div class="section" id="image-processing">
+<h2>Image processing</h2>
 <ul class="simple">
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/rangecompress.html">rangecompress</a></span> - Compress range of signal (mu-law etc).</li>
-<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/rangeexpand.html">rangeexpand</a></span> - Expand range of signal.</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/rgb2jpeg.html">rgb2jpeg</a></span> - Convert RGB values to the JPEG colour model</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/jpeg2rgb.html">jpeg2rgb</a></span> - Convert values from the JPEG colour model to RGB</li>
+</ul>
+</div>
+<div class="section" id="tools-for-ofdm">
+<h2>Tools for OFDM</h2>
+<ul class="simple">
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/qam4.html">qam4</a></span> - Quadrature amplitude modulation, order 4</li>
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/iqam4.html">iqam4</a></span> - Inverse QAM of order 4</li>
+</ul>
+</div>
+<div class="section" id="auxiliary">
+<h2>Auxiliary</h2>
+<ul class="simple">
+<li><span class="linkrole"><a href="#BASEURL#/doc/sigproc/col2diag.html">col2diag</a></span> - Move columns of a matrix to diagonals</li>
 </ul>
 <p>For help, bug reports, suggestions etc. please visit
 <a class="reference external" href="http://github.com/ltfat/ltfat/issues">http://github.com/ltfat/ltfat/issues</a></p>
