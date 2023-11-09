@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta NAME="keywords" CONTENT="gabor, wavelets, filterbank, signal processing, matlab,
 octave"/>
-<title>CRESTFACTOR - Crest factor of input signal in dB</title>
+<title>RANGECOMPRESS - Compress the dynamic range of a signal</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet"
@@ -24,35 +24,72 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <div class="masthead include" file="../../include/mainnav.html">
 </div>
 <div class="row">
-    <div class="col-md-2" id="codeswitch"><div id="menutitle"><a href="crestfactor_code.html">View the code</a></div>
+    <div class="col-md-2" id="codeswitch"><div id="menutitle"><a href="rangecompress_code.html">View the code</a></div>
 </div>
     <div class="col-md-offset-5 col-md-5" id="jumplist">This is where navigation should be.</div>
 </div>
 <div class="row">
     <div class="col-md-2">
         <div class="include" file='../include/docnav.html'></div>
-        <div id="seealso"><p><div id="menutitle">See also:</div>
-<ul>
-<li><a href="#BASEURL#/doc/sigproc/rms.html">rms</a></li>
-<li><a href="#BASEURL#/doc/signals/gaindb.html">gaindb</a></li>
-</ul>
-</p></div>
+        <div id="seealso"><p></p></div>
     </div>
     <div class="col-md-10">
 
-        <h1 class="title">CRESTFACTOR - Crest factor of input signal in dB</h1>
+        <h1 class="title">RANGECOMPRESS - Compress the dynamic range of a signal</h1>
 
 <div class="section" id="usage">
 <h2>Usage</h2>
 <pre class="literal-block">
-c=crestfactor(insig);
+[outsig, sigweight] = rangecompress(insig,mu);
 </pre>
 </div>
 <div class="section" id="xxxdescription">
 <h2>Description</h2>
-<p><tt class="docutils literal">crestfactor(insig)</tt> computes the crest factor of the input signal
-<em>insig</em>. The output is measured in dB.</p>
+<p><tt class="docutils literal">[outsig, <span class="pre">sigweight]=rangecompress(insig,mu)</span></tt> range-compresss the input
+signal <em>insig</em> using <span class="math">\(\mu\)</span>-law range-compression with parameter <em>mu</em>.</p>
+<p><tt class="docutils literal">rangecompress</tt> takes the following optional arguments:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">'mulaw'</span></kbd></td>
+<td>Do mu-law compression, this is the default.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">'alaw'</span></kbd></td>
+<td>Do A-law compression.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">'mu',<var>mu</var></span></kbd></td>
+<td><span class="math">\(\mu\)</span>-law parameter. Default value is 255.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">'A',<var>A</var></span></kbd></td>
+<td>A-law parameter. Default value is 87.7.</td></tr>
+</tbody>
+</table>
+<p>The following plot shows how the output range is compressed for input
+values between 0 and 1:</p>
+<pre class="literal-block">
+x=linspace(0,1,100);
+xc=rangecompress(x);
+plot(x,xc);
+xlabel('input');
+ylabel('output');
+title('\mu-law compression');
+</pre>
 </div>
+<H2>References:</H2>
+
+
+
+<p><a name="jano90"></a>
+
+S.&nbsp;Jayant and P.&nbsp;Noll.
+ <em>Digital Coding of Waveforms: Principles and Applications to
+  Speech and Video</em>.
+ Prentice Hall, 1990.
+
+</p>
+
 
         <div class="include" file="../../include/footer.html"></div>
     </div>

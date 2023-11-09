@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta NAME="keywords" CONTENT="gabor, wavelets, filterbank, signal processing, matlab,
 octave"/>
-<title>CRESTFACTOR - Crest factor of input signal in dB</title>
+<title>RAMPDOWN - Falling ramp function</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet"
@@ -24,7 +24,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <div class="masthead include" file="../../include/mainnav.html">
 </div>
 <div class="row">
-    <div class="col-md-2" id="codeswitch"><div id="menutitle"><a href="crestfactor.html">View the help</a></div>
+    <div class="col-md-2" id="codeswitch"><div id="menutitle"><a href="rampdown.html">View the help</a></div>
 </div>
     <div class="col-md-offset-5 col-md-5" id="jumplist">This is where navigation should be.</div>
 </div>
@@ -33,25 +33,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
         <div class="include" file='../include/docnav.html'></div>
         <div id="seealso"><p><div id="menutitle">See also:</div>
 <ul>
-<li><a href="#BASEURL#/doc/sigproc/rms.html">rms</a></li>
-<li><a href="#BASEURL#/doc/signals/gaindb.html">gaindb</a></li>
+<li><a href="#BASEURL#/doc/signals/rampup.html">rampup</a></li>
+<li><a href="#BASEURL#/doc/signals/rampsignal.html">rampsignal</a></li>
+<li><a href="#BASEURL#/doc/sigproc/firwin.html">firwin</a></li>
 </ul>
 </p></div>
     </div>
     <div class="col-md-10">
 
-        <h1 class="title">CRESTFACTOR - Crest factor of input signal in dB</h1>
+        <h1 class="title">RAMPDOWN - Falling ramp function</h1>
 <h2>Program code:</h2>
-<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>c<span class="p">=</span><span class="nf">crestfactor</span><span class="p">(</span>insig<span class="p">)</span><span class="w"></span>
-<span class="c">%CRESTFACTOR  Crest factor of input signal in dB</span><span class="w"></span>
-<span class="c">%   Usage:  c=crestfactor(insig);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>outsig<span class="p">=</span><span class="nf">rampdown</span><span class="p">(</span>L,wintype<span class="p">)</span><span class="w"></span>
+<span class="c">%RAMPDOWN  Falling ramp function</span><span class="w"></span>
+<span class="c">%   Usage: outsig=rampdown(siglen);</span><span class="w"></span>
 <span class="c">%</span><span class="w"></span>
-<span class="c">%   CRESTFACTOR(insig) computes the crest factor of the input signal</span><span class="w"></span>
-<span class="c">%   insig. The output is measured in dB.</span><span class="w"></span>
+<span class="c">%   RAMPDOWN(siglen) will return a falling ramp function of length</span><span class="w"></span>
+<span class="c">%   siglen. The ramp is a sinusoid starting from one and ending at</span><span class="w"></span>
+<span class="c">%   zero. The ramp is centered such that the first element is always one and</span><span class="w"></span>
+<span class="c">%   the last element is not quite zero, such that the ramp fits with</span><span class="w"></span>
+<span class="c">%   following zeros.</span><span class="w"></span>
 <span class="c">%</span><span class="w"></span>
-<span class="c">%   See also: rms, gaindb</span><span class="w"></span>
+<span class="c">%   RAMPDOWN(L,wintype) will use another window for ramping. This may be</span><span class="w"></span>
+<span class="c">%   any of the window types from FIRWIN. Please see the help on FIRWIN</span><span class="w"></span>
+<span class="c">%   for more information. The default is to use a piece of the Hann window.</span><span class="w"></span>
+<span class="c">%  </span><span class="w"></span>
+<span class="c">%   See also: rampup, rampsignal, firwin</span><span class="w"></span>
 <span class="c">%</span><span class="w"></span>
-<span class="c">%   Url: http://ltfat.github.io/doc/sigproc/crestfactor.html</span><span class="w"></span>
+<span class="c">%   Url: http://ltfat.github.io/doc/signals/rampdown.html</span><span class="w"></span>
 
 <span class="c">% Copyright (C) 2005-2023 Peter L. Soendergaard &lt;peter@sonderport.dk&gt; and others.</span><span class="w"></span>
 <span class="c">% This file is part of LTFAT version 2.6.0</span><span class="w"></span>
@@ -68,8 +76,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstra
 <span class="c">%</span><span class="w"></span>
 <span class="c">% You should have received a copy of the GNU General Public License</span><span class="w"></span>
 <span class="c">% along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span><span class="w"></span>
+<span class="w">   </span>
+<span class="n">complainif_argnonotinrange</span><span class="p">(</span><span class="nb">nargin</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">mfilename</span><span class="p">);</span><span class="w"></span>
 
-<span class="n">c</span><span class="p">=</span><span class="mi">20</span><span class="o">*</span><span class="nb">log10</span><span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">insig</span><span class="p">,</span><span class="nb">Inf</span><span class="p">)</span><span class="o">/</span><span class="n">rms</span><span class="p">(</span><span class="n">insig</span><span class="p">));</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="nb">nargin</span><span class="o">==</span><span class="mi">1</span><span class="w"></span>
+<span class="w">  </span><span class="n">wintype</span><span class="p">=</span><span class="s">&#39;hann&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">end</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="n">win</span><span class="p">=</span><span class="n">firwin</span><span class="p">(</span><span class="n">wintype</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">L</span><span class="p">,</span><span class="s">&#39;inf&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">outsig</span><span class="p">=</span><span class="n">win</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">L</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 
