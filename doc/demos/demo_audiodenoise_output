@@ -1,5 +1,0 @@
-RESULTS:
-      Input SNR: 6.027975 dB.
-      Output SNR (hard): 9.005930 dB.
-      Output SNR (soft): 14.324019 dB.
- Signals are stored in variables sig, nsig, hrec, srec
